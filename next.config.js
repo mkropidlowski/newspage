@@ -10,7 +10,7 @@ module.exports = {
     },
     images: {
         unoptimized: true,
-        domains: [""],
+        domains: ["static.ffx.io"],
     },
     typescript: {
         ignoreBuildErrors: true,

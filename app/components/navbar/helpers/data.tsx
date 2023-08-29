@@ -3,32 +3,32 @@ import { MenuProps } from "../types";
 export const Navigation: MenuProps[] = [
     {
         name: "General",
-        href: "#",
+        href: "general",
         current: true,
     },
     {
         name: "Politics",
-        href: "#",
+        href: "politics",
         current: true,
     },
     {
         name: "Business",
-        href: "#",
+        href: "business",
         current: true,
     },
     {
         name: "Tech",
-        href: "#",
+        href: "technology",
         current: true,
     },
     {
         name: "Sports",
-        href: "#",
+        href: "sports",
         current: true,
     },
     {
         name: "Sience",
-        href: "#",
+        href: "sience",
         current: true,
     },
 ];

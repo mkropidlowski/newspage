@@ -17,6 +17,7 @@ const config: Config = {
             white: "#ffffff",
             black: "#171717",
             gray: "#DDE6ED",
+            blueSky: "#0ea5e9",
         },
         screens: {
             xxs: "416px",

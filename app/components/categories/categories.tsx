@@ -2,17 +2,7 @@ import { BE_News } from "@/types/types";
 import { FC } from "react";
 import Image from "next/image";
 
-const Categories: FC<BE_News> = ({
-    author,
-    title,
-    description,
-    url,
-    source,
-    image,
-    category,
-    country,
-    published_at,
-}) => {
+const Categories: FC<BE_News> = ({ title, image }) => {
     return (
         <div className="w-[400px] h-[200px] flex items-start flex-row p-4 gap-[10px] cursor-pointer">
             <h1 className="text-sm w-[250px]">{title}</h1>

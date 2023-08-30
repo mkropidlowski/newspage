@@ -19,7 +19,7 @@ const News: FC<BE_News> = ({ author, title, description, image, category, url })
                 <p className="capitalize p-1">
                     Category: <span className="font-medium">{category}</span>
                 </p>
-                <p className="mt-[20px]">{description}</p>
+                <p className="mt-[20px]">{description.substring(0, 150)}...</p>
             </div>
             <div className="h-full w-[2px] bg-gray"></div>
             <div className="w-[50%] flex flex-col gap-4 items-center ">

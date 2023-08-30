@@ -1,6 +1,6 @@
-import { BE_News } from "@/types/types";
 import { FC } from "react";
 import Image from "next/image";
+import { BE_News } from "@/types/types";
 
 const CategorySection: FC<BE_News> = ({ title, image }) => {
     return (

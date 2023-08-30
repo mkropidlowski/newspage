@@ -3,7 +3,7 @@ import Hero from "../hero/hero";
 import Navbar from "../navbar/navbar";
 
 const PageLayout = async ({ children }: { children: React.ReactNode }) => {
-    const news = await getAllNews(3);
+    const news = await getAllNews(4);
     return (
         <div className="flex flex-col w-full h-full">
             <Navbar />

@@ -3,11 +3,17 @@ import { BE_News } from "@/types/types";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
+import { useRouter } from "next/navigation";
 
 const News: FC<BE_News> = ({ author, title, description, image, category, url, published_at }) => {
+    const router = useRouter();
+    const handleNewsClick = () => {
+        router.push(`/news/${title}`);
+    };
+
     return (
         <div className="max-w-[1000px] flex items-start flex-row p-4 gap-[30px] border-t-[1px]">
-            <div className="w-[50%] cursor-pointer">
+            <div className="w-[50%] cursor-pointer" onClick={handleNewsClick}>
                 <h1 className="text-3xl">{title}</h1>
                 <p className="text-sm underline p-1">Author: {author}</p>
                 <p className="capitalize p-1">
@@ -18,13 +24,14 @@ const News: FC<BE_News> = ({ author, title, description, image, category, url, p
             <div className="h-full w-[2px] bg-gray"></div>
             <div className="w-[50%] flex flex-col gap-4 items-center ">
                 {image ? (
-                    <Image src={image} alt={""} width={500} height={300} className="rounded-lg" />
+                    <Image src={image} alt={""} width={500} height={300} className="rounded-lg" priority />
                 ) : (
                     <Image
                         src="https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg"
                         alt="Empty Image Placeholder"
                         width={500}
                         height={300}
+                        priority
                     />
                 )}
                 <Link

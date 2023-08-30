@@ -27,8 +27,8 @@ export const Navigation: MenuProps[] = [
         current: true,
     },
     {
-        name: "Sience",
-        href: "sience",
+        name: "Science",
+        href: "science",
         current: true,
     },
 ];

@@ -1,18 +1,25 @@
-import { getAllNews } from "@/app/modules/getAllNews";
-import { BE_News } from "@/types/types";
 import News from "./components/news";
 import SideNewsPanel from "../sideNewsPanel/sideNewsPanel";
-import { FC } from "react";
+import { FC, useId } from "react";
+import { BE_News } from "@/types/types";
 
 type HeroProps = {
-    newsData?: any;
+    newsData?: { data: BE_News[] };
 };
 
 const Hero: FC<HeroProps> = ({ newsData }) => {
+    const id = useId();
+    const uniqueNewsData = newsData?.data?.reduce((acc: BE_News[], current: BE_News) => {
+        if (!acc.find((item) => item.title === current.title)) {
+            acc.push(current);
+        }
+        return acc;
+    }, []);
+
     return (
         <div className="max-w-[1240px] flex flex-row p-5 m-auto gap-8">
             <div className="flex flex-col gap-[30px]">
-                {newsData.data.map((newsItem: BE_News, id: number) => (
+                {uniqueNewsData?.map((newsItem: BE_News) => (
                     <News
                         key={id + `${newsItem.title}`}
                         author={newsItem?.author}

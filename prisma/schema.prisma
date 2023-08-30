@@ -18,5 +18,5 @@ model News {
   url String
   image String
   category String
-  publishedAt DateTime?
+  createdAt DateTime @default(now())
 }

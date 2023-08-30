@@ -2,7 +2,7 @@ import { BE_News } from "@/types/types";
 import { FC } from "react";
 import Image from "next/image";
 
-const Categories: FC<BE_News> = ({ title, image }) => {
+const CategorySection: FC<BE_News> = ({ title, image }) => {
     return (
         <div className="w-[400px] h-[200px] flex items-start flex-row p-4 gap-[10px] cursor-pointer">
             <h1 className="text-sm w-[250px]">{title}</h1>
@@ -22,4 +22,4 @@ const Categories: FC<BE_News> = ({ title, image }) => {
     );
 };
 
-export default Categories;
+export default CategorySection;

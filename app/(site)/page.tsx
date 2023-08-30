@@ -6,14 +6,14 @@ export default async function Home() {
     const categoryNames = ["technology", "business", "science", "sports", "entertainment", "health"];
     const limit = 6;
     const newsByCategories = await Promise.all(
-        categoryNames.map((categoryName) => getByCategories(categoryName, limit))
+        categoryNames.map((categoryName) => getByCategories(limit, categoryName))
     );
 
     return (
         <PageLayout>
             <div className="w-[1240px] mt-[100px] flex flex-col gap-11">
                 {newsByCategories.map((newsForCategory, i) => (
-                    <CategoryGroup key={i} categoryName={categoryNames[i]} news={newsForCategory.data} />
+                    <CategoryGroup key={i} categoryName={categoryNames[i]} news={newsForCategory} />
                 ))}
             </div>
         </PageLayout>

@@ -1,17 +1,16 @@
-import { publicEnvs } from "../config/envs";
+import prisma from "@/app/libs/prismadb";
 
-const SECRET_KEY = publicEnvs.API_SECRET;
-const API_KEY = publicEnvs.BASE_API_URL;
+export const getByCategories = async (limit: number, category: string) => {
+    try {
+        const news = await prisma.news.findMany({
+            take: limit,
+            where: {
+                category: category,
+            },
+        });
 
-export const getByCategories = async (categories: string, limit: number) => {
-    const res = await fetch(
-        `${API_KEY}?access_key=${SECRET_KEY}&limit=${limit}&sort=popularity&categories=${categories}`,
-        {
-            next: { revalidate: 3600 },
-        }
-    );
-    if (!res.ok) {
-        throw new Error("Failed to fetch data.");
+        return news;
+    } catch (error: any) {
+        return [];
     }
-    return res.json();
 };

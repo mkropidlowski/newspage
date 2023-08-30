@@ -5,7 +5,7 @@ import Link from "next/link";
 import { FC } from "react";
 import { useRouter } from "next/navigation";
 
-const News: FC<BE_News> = ({ author, title, description, image, category, url, published_at }) => {
+const News: FC<BE_News> = ({ author, title, description, image, category, url }) => {
     const router = useRouter();
     const handleNewsClick = () => {
         router.push(`/news/${title}`);
@@ -23,17 +23,7 @@ const News: FC<BE_News> = ({ author, title, description, image, category, url, p
             </div>
             <div className="h-full w-[2px] bg-gray"></div>
             <div className="w-[50%] flex flex-col gap-4 items-center ">
-                {image ? (
-                    <Image src={image} alt={""} width={500} height={300} className="rounded-lg" priority />
-                ) : (
-                    <Image
-                        src="https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg"
-                        alt="Empty Image Placeholder"
-                        width={500}
-                        height={300}
-                        priority
-                    />
-                )}
+                {image ? <Image src={image} alt={""} width={500} height={300} className="rounded-lg" priority /> : null}
                 <Link
                     href={url}
                     target={"_blank"}

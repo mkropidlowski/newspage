@@ -1,40 +1,34 @@
 import News from "./components/news";
-import SideNewsPanel from "../sideNewsPanel/sideNewsPanel";
-import { FC, useId } from "react";
-import { BE_News } from "@/types/types";
+import SideNewsPanel from "./components/sideNewsPanel";
+import { FC } from "react";
+import { News as NewsProps } from "@prisma/client";
 
 type HeroProps = {
-    newsData?: { data: BE_News[] };
+    newsData?: NewsProps[];
+    sidePanelNews?: NewsProps[];
 };
 
-const Hero: FC<HeroProps> = ({ newsData }) => {
-    const id = useId();
-    const uniqueNewsData = newsData?.data?.reduce((acc: BE_News[], current: BE_News) => {
-        if (!acc.find((item) => item.title === current.title)) {
-            acc.push(current);
-        }
-        return acc;
-    }, []);
-
+const Hero: FC<HeroProps> = ({ newsData, sidePanelNews }) => {
     return (
         <div className="max-w-[1240px] flex flex-row p-5 m-auto gap-8">
             <div className="flex flex-col gap-[30px]">
-                {uniqueNewsData?.map((newsItem: BE_News) => (
+                {newsData?.map((newsItem: NewsProps) => (
                     <News
-                        key={id + `${newsItem.title}`}
+                        key={newsItem?.id}
                         author={newsItem?.author}
                         title={newsItem?.title}
                         description={newsItem?.description}
                         url={newsItem?.url}
-                        source={newsItem?.source}
                         image={newsItem?.image}
                         category={newsItem?.category}
-                        country={newsItem?.country}
-                        published_at={newsItem?.published_at}
                     />
                 ))}
             </div>
-            <SideNewsPanel />
+            <div className="w-[330px] flex flex-col items-center">
+                {sidePanelNews?.map((panelNews: NewsProps) => (
+                    <SideNewsPanel key={panelNews?.id} title={panelNews?.title} image={panelNews.image} />
+                ))}
+            </div>
         </div>
     );
 };

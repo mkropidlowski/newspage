@@ -1,10 +1,10 @@
-import { BE_News } from "@/types/types";
 import React from "react";
-import Categories from "./categories";
+import CategorySection from "./components/categorySection";
+import { News } from "@prisma/client";
 
 type CategoryGroupProps = {
     categoryName: string;
-    news: BE_News[];
+    news: News[];
 };
 
 const CategoryGroup: React.FC<CategoryGroupProps> = ({ categoryName, news }) => {
@@ -14,18 +14,15 @@ const CategoryGroup: React.FC<CategoryGroupProps> = ({ categoryName, news }) => 
                 <h2 className="capitalize text-4xl font-medium">{categoryName}</h2>
             </div>
             <div className="flex flex-wrap">
-                {news.map((newsItem: BE_News, i: number) => (
-                    <Categories
-                        key={i}
+                {news.map((newsItem: News) => (
+                    <CategorySection
+                        key={newsItem.id}
                         author={newsItem.author}
                         title={newsItem.title}
                         description={newsItem.description}
                         url={newsItem.url}
-                        source={newsItem.source}
                         image={newsItem.image}
                         category={newsItem.category}
-                        country={newsItem.country}
-                        published_at={newsItem.published_at}
                     />
                 ))}
             </div>

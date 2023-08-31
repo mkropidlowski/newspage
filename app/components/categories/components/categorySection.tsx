@@ -1,22 +1,23 @@
+"use client";
 import { FC } from "react";
 import Image from "next/image";
 import { BE_News } from "@/types/types";
+import { useRouter } from "next/navigation";
 
-const CategorySection: FC<BE_News> = ({ title, image }) => {
+const CategorySection: FC<BE_News> = ({ id, title, image }) => {
+    const router = useRouter();
+    const handleNewsClick = (articleId: string | undefined) => {
+        router.push(`/article/${articleId}`);
+    };
     return (
-        <div className="w-[400px] h-[200px] flex items-start flex-row p-4 gap-[10px] cursor-pointer">
+        <div
+            className="w-[400px] flex items-start justify-around flex-row p-4 gap-[10px] cursor-pointer shadow-black bg-[#f3f3f3] hover:bg-gray rounded-lg font-medium"
+            id={id}
+            onClick={() => handleNewsClick(id)}
+        >
             <h1 className="text-sm w-[250px]">{title}</h1>
-            <div className="flex flex-col gap-3 items-centers w-[150px] h-[150px]">
-                {image ? (
-                    <Image src={image} alt={""} width={150} height={150} className="rounded-lg" />
-                ) : (
-                    <Image
-                        src="https://www.pulsecarshalton.co.uk/wp-content/uploads/2016/08/jk-placeholder-image.jpg"
-                        alt="Empty Image Placeholder"
-                        width={150}
-                        height={150}
-                    />
-                )}
+            <div className="flex flex-col gap-3 items-centers w-[150px] h-[100px] relative">
+                {image ? <Image src={image} alt={""} fill className="rounded-lg" /> : null}
             </div>
         </div>
     );

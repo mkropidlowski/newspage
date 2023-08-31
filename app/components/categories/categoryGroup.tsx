@@ -13,10 +13,11 @@ const CategoryGroup: React.FC<CategoryGroupProps> = ({ categoryName, news }) => 
             <div>
                 <h2 className="capitalize text-4xl font-medium">{categoryName}</h2>
             </div>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap gap-5">
                 {news.map((newsItem: News) => (
                     <CategorySection
                         key={newsItem.id}
+                        id={newsItem.id}
                         author={newsItem.author}
                         title={newsItem.title}
                         description={newsItem.description}

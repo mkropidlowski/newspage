@@ -5,15 +5,15 @@ import Link from "next/link";
 import { FC } from "react";
 import { useRouter } from "next/navigation";
 
-const News: FC<BE_News> = ({ author, title, description, image, category, url }) => {
+const News: FC<BE_News> = ({ id, author, title, description, image, category, url }) => {
     const router = useRouter();
-    const handleNewsClick = () => {
-        router.push(`/news/${title}`);
+    const handleNewsClick = (articleId: string | undefined) => {
+        router.push(`/article/${articleId}`);
     };
 
     return (
-        <div className="max-w-[1000px] flex items-start flex-row p-4 gap-[30px] border-t-[1px]">
-            <div className="w-[50%] cursor-pointer" onClick={handleNewsClick}>
+        <div className="max-w-[1000px] flex items-start flex-row p-4 gap-[30px] border-t-[1px]" id={id}>
+            <div className="w-[50%] cursor-pointer" onClick={() => handleNewsClick(id)}>
                 <h1 className="text-3xl">{title}</h1>
                 <p className="text-sm underline p-1">Author: {author}</p>
                 <p className="capitalize p-1">

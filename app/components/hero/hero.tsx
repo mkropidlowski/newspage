@@ -15,6 +15,7 @@ const Hero: FC<HeroProps> = ({ newsData, sidePanelNews }) => {
                 {newsData?.map((newsItem: NewsProps) => (
                     <News
                         key={newsItem?.id}
+                        id={newsItem.id}
                         author={newsItem?.author}
                         title={newsItem?.title}
                         description={newsItem?.description}
@@ -26,7 +27,12 @@ const Hero: FC<HeroProps> = ({ newsData, sidePanelNews }) => {
             </div>
             <div className="w-[330px] flex flex-col items-center">
                 {sidePanelNews?.map((panelNews: NewsProps) => (
-                    <SideNewsPanel key={panelNews?.id} title={panelNews?.title} image={panelNews.image} />
+                    <SideNewsPanel
+                        key={panelNews?.id}
+                        id={panelNews.id}
+                        title={panelNews?.title}
+                        image={panelNews.image}
+                    />
                 ))}
             </div>
         </div>

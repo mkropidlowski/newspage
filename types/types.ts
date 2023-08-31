@@ -1,4 +1,5 @@
 export type BE_News = {
+    id?: string;
     author?: string;
     title?: string;
     description?: string | any;

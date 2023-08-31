@@ -1,6 +1,7 @@
 import PageLayout from "../components/layout/pageLayout";
 import { getByCategories } from "../modules/getByCategories";
 import CategoryGroup from "../components/categories/categoryGroup";
+import Footer from "../components/footer/footer";
 
 export default async function Home() {
     const categoryNames = ["technology", "business", "science", "sports", "health"];
@@ -16,6 +17,7 @@ export default async function Home() {
                     <CategoryGroup key={i} categoryName={categoryNames[i]} news={newsForCategory} />
                 ))}
             </div>
+            <Footer />
         </PageLayout>
     );
 }

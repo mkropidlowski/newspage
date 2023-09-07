@@ -9,11 +9,11 @@ type CategoryGroupProps = {
 
 const CategoryGroup: React.FC<CategoryGroupProps> = ({ categoryName, news }) => {
     return (
-        <div className="w-full flex flex-col gap-5">
+        <div className="w-[320px] md:w-full flex flex-col gap-5">
             <div>
                 <h2 className="capitalize text-4xl font-medium">{categoryName}</h2>
             </div>
-            <div className="flex flex-wrap gap-5">
+            <div className="flex flex-wrap flex-col md:flex-row gap-5">
                 {news.map((newsItem: News) => (
                     <CategorySection
                         key={newsItem.id}

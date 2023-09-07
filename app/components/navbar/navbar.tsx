@@ -19,15 +19,15 @@ const Navbar: FC<NavbarProps> = ({ navigationLinks = Navigation }) => {
         setMenuOpen(!menuOpen);
     };
     return (
-        <nav className="">
+        <nav>
             <div className="max-w-screen flex md:flex-row flex-col items-center justify-between mx-auto p-4 shadow-[0_8px_5px_-10px_rgba(0,0,0,0.3)] md:justify-around ">
                 <div className="flex justify-between w-full md:w-fit">
                     <Link href="/">
                         <h1 className="text-2xl md:text-3xl font-semibold">Trendy News</h1>
-                        <div className="md:order-2 md:hidden block cursor-pointer">
-                            <HamburgerIcon width={30} height={30} onClick={handleMenuOpen} />
-                        </div>
                     </Link>
+                    <div className="md:order-2 md:hidden block cursor-pointer">
+                        <HamburgerIcon width={30} height={30} onClick={handleMenuOpen} />
+                    </div>
                 </div>
 
                 <div

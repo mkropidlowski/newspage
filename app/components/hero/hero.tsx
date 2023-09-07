@@ -25,7 +25,7 @@ const Hero: FC<HeroProps> = ({ newsData, sidePanelNews }) => {
                     />
                 ))}
             </div>
-            <div className="w-[330px] flex flex-col items-center">
+            <div className="w-[330px] md:flex flex-col items-center hidden ">
                 {sidePanelNews?.map((panelNews: NewsProps) => (
                     <SideNewsPanel
                         key={panelNews?.id}

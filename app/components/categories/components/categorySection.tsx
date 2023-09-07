@@ -11,7 +11,7 @@ const CategorySection: FC<BE_News> = ({ id, title, image }) => {
     };
     return (
         <div
-            className="w-[400px] flex items-start justify-around flex-row p-4 gap-[10px] cursor-pointer shadow-black bg-[#f3f3f3] hover:bg-gray rounded-lg font-medium"
+            className="md:w-[400px] w-[300px] flex items-start justify-around flex-row p-4 gap-[10px] cursor-pointer shadow-black bg-[#f3f3f3] hover:bg-gray rounded-lg font-medium"
             id={id}
             onClick={() => handleNewsClick(id)}
         >
